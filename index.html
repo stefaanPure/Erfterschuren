@@ -96,6 +96,8 @@
   .cta .stack{font-family:var(--disp);text-transform:uppercase;letter-spacing:.22em;font-size:13px;line-height:2.4;color:#c7cfcf;margin-top:26px}
   .btn-outline{display:inline-block;margin-top:32px;font-family:var(--disp);text-transform:uppercase;letter-spacing:.2em;font-size:12.5px;color:#fff;border:1px solid rgba(237,234,227,.45);padding:17px 34px;transition:all .3s}
   .btn-outline:hover{background:#fff;color:var(--navy);border-color:#fff}
+  .btn-mail{display:inline-block;margin-top:16px;font-family:var(--disp);text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:#fff;border:1px solid rgba(237,234,227,.45);padding:13px 28px;text-decoration:none;transition:all .3s}
+  .btn-mail:hover{background:#fff;color:var(--navy);border-color:#fff}
   button.btn-outline{background:transparent;cursor:pointer}
   .lead-modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:22px}
   .lead-modal.open{display:flex}
@@ -292,7 +294,7 @@
       <div class="stack">Landelijk.<br>Tijdloos.<br>Volledig afgewerkt.</div>
       <button type="button" class="btn-outline" id="brochureBtn">Hou me op de hoogte</button>
       <div class="cinfo">Meer informatie over dit woonproject in Denderhoutem?<br>
-        <a href="mailto:info@meerwonen.be">info@meerwonen.be</a> &nbsp;·&nbsp; <a href="tel:+32485736014">+32 485 73 60 14</a>
+        <a class="btn-mail" href="mailto:info@meerwonen.be?subject=Vraag%20over%20Erf%20ter%20Schuren">Contacteer ons</a>
       </div>
     </div>
   </div>
@@ -301,7 +303,7 @@
 <footer>
   <div class="wrap foot">
     <a href="#top" aria-label="Meer Wonen"><img src="images/meer-wonen-light.png" alt="Meer Wonen"></a>
-    <div class="credits"><span>Erf ter Schuren</span><span>Denderhoutem</span><span>© 2026 Meer Wonen BV</span></div>
+    <div class="credits"><span>Erf ter Schuren</span><span>Denderhoutem</span><span>© 2026 Meer Wonen BV</span><span>BTW BE 0794.126.924</span><a href="privacy.html">Privacybeleid</a></div>
   </div>
 </footer>
 
@@ -337,7 +339,7 @@
       </div>
       <div class="lm-field"><label for="lf-mail">E-mailadres</label><input id="lf-mail" type="email" name="email" required></div>
       <div class="lm-field"><label for="lf-tel">Telefoon</label><input id="lf-tel" type="tel" name="telefoon" required></div>
-      <label class="lm-consent"><input type="checkbox" required> Ik ga ermee akkoord dat Meer Wonen mijn gegevens gebruikt om mij te contacteren over dit project.</label>
+      <label class="lm-consent"><input type="checkbox" required> Ik ga ermee akkoord dat Meer Wonen mijn gegevens gebruikt om mij te contacteren over dit project. Zie ons <a href="privacy.html" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:underline">privacybeleid</a>.</label>
       <button type="submit" class="lm-submit">Hou me op de hoogte</button>
       <p class="lm-status" id="lmStatus" role="status" aria-live="polite"></p>
     </form>
