@@ -96,6 +96,30 @@
   .cta .stack{font-family:var(--disp);text-transform:uppercase;letter-spacing:.22em;font-size:13px;line-height:2.4;color:#c7cfcf;margin-top:26px}
   .btn-outline{display:inline-block;margin-top:32px;font-family:var(--disp);text-transform:uppercase;letter-spacing:.2em;font-size:12.5px;color:#fff;border:1px solid rgba(237,234,227,.45);padding:17px 34px;transition:all .3s}
   .btn-outline:hover{background:#fff;color:var(--navy);border-color:#fff}
+  button.btn-outline{background:transparent;cursor:pointer}
+  .lead-modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:22px}
+  .lead-modal.open{display:flex}
+  .lm-backdrop{position:absolute;inset:0;background:rgba(22,36,46,.55);backdrop-filter:blur(3px)}
+  .lm-card{position:relative;background:var(--paper);max-width:460px;width:100%;padding:44px 40px;box-shadow:0 30px 80px rgba(22,36,46,.28);max-height:92vh;overflow:auto}
+  .lm-x{position:absolute;top:14px;right:18px;background:none;border:0;cursor:pointer;font-family:var(--disp);font-size:26px;line-height:1;color:var(--slate)}
+  .lm-x:hover{color:var(--ink)}
+  .lm-title{font-family:var(--disp);font-weight:400;text-transform:uppercase;letter-spacing:.13em;font-size:1.4rem;color:var(--ink);margin:10px 0 8px}
+  .lm-sub{font-size:14.5px;color:var(--ink-soft);font-weight:300;margin-bottom:22px}
+  .lm-form{display:flex;flex-direction:column;gap:14px}
+  .lm-row{display:flex;gap:14px}
+  .lm-row .lm-field{flex:1}
+  .lm-field{display:flex;flex-direction:column;gap:6px}
+  .lm-field label{font-family:var(--disp);text-transform:uppercase;letter-spacing:.12em;font-size:10.5px;color:var(--slate)}
+  .lm-field input{font-family:var(--body);font-size:15px;color:var(--ink);background:#fff;border:1px solid var(--line);padding:12px 13px;outline:none;transition:border .2s}
+  .lm-field input:focus{border-color:var(--blue)}
+  .lm-consent{display:flex;gap:9px;align-items:flex-start;font-size:12.5px;color:var(--slate);font-weight:300;line-height:1.5;margin-top:2px}
+  .lm-consent input{margin-top:3px;accent-color:var(--blue)}
+  .lm-hp{position:absolute;left:-9999px}
+  .lm-submit{margin-top:8px;text-align:center;font-family:var(--disp);text-transform:uppercase;letter-spacing:.2em;font-size:12.5px;color:#fff;background:var(--navy);border:1px solid var(--navy);padding:15px 30px;cursor:pointer;transition:all .25s}
+  .lm-submit:hover{background:var(--blue);border-color:var(--blue)}
+  .lm-submit[disabled]{opacity:.55;cursor:default}
+  .lm-status{font-size:13px;color:#b23b3b;min-height:1em}
+  .lm-dl{display:inline-block;text-decoration:none}
   .cinfo{margin-top:28px;font-size:15px;font-weight:300;line-height:2;color:#d6dcdc}
   .cinfo a:hover{color:#fff}
 
@@ -266,7 +290,7 @@
       <span class="marker light" aria-hidden="true" style="margin-bottom:34px"><i></i><i></i></span>
       <h2>Interesse in<br>Erf ter Schuren?</h2>
       <div class="stack">Landelijk.<br>Tijdloos.<br>Volledig afgewerkt.</div>
-      <a href="#" class="btn-outline">Download de brochure</a>
+      <button type="button" class="btn-outline" id="brochureBtn">Hou me op de hoogte</button>
       <div class="cinfo">Meer informatie over dit woonproject in Denderhoutem?<br>
         <a href="mailto:info@meerwonen.be">info@meerwonen.be</a> &nbsp;·&nbsp; <a href="tel:+32485736014">+32 485 73 60 14</a>
       </div>
@@ -294,6 +318,36 @@
   <div class="ov-foot"><div class="wm">Erf ter Schuren</div><img src="images/meer-wonen-light.png" alt="Meer Wonen"></div>
 </div>
 
+<!-- Hou-me-op-de-hoogte modal -->
+<div class="lead-modal" id="leadModal" aria-hidden="true">
+  <div class="lm-backdrop"></div>
+  <div class="lm-card" role="dialog" aria-modal="true" aria-labelledby="lmTitle">
+    <button class="lm-x" id="lmClose" type="button" aria-label="Sluiten">&#215;</button>
+    <p class="eyebrow">Brochure</p>
+    <h3 class="lm-title" id="lmTitle">Hou me op de hoogte</h3>
+    <p class="lm-sub">De brochure van Erf ter Schuren is nog in de maak. Laat je gegevens na en wees als eerste op de hoogte zodra ze beschikbaar is.</p>
+    <form id="leadForm" class="lm-form">
+      <input type="hidden" name="access_key" value="3787631e-3b1f-4bb2-b5ac-b5520554d7ee">
+      <input type="hidden" name="subject" value="Nieuwe aanvraag 'hou me op de hoogte' — Erf ter Schuren">
+      <input type="hidden" name="from_name" value="Erf ter Schuren website">
+      <input type="checkbox" name="botcheck" class="lm-hp" tabindex="-1" autocomplete="off">
+      <div class="lm-row">
+        <div class="lm-field"><label for="lf-vn">Voornaam</label><input id="lf-vn" type="text" name="voornaam" required></div>
+        <div class="lm-field"><label for="lf-naam">Naam</label><input id="lf-naam" type="text" name="naam" required></div>
+      </div>
+      <div class="lm-field"><label for="lf-mail">E-mailadres</label><input id="lf-mail" type="email" name="email" required></div>
+      <div class="lm-field"><label for="lf-tel">Telefoon</label><input id="lf-tel" type="tel" name="telefoon" required></div>
+      <label class="lm-consent"><input type="checkbox" required> Ik ga ermee akkoord dat Meer Wonen mijn gegevens gebruikt om mij te contacteren over dit project.</label>
+      <button type="submit" class="lm-submit">Hou me op de hoogte</button>
+      <p class="lm-status" id="lmStatus" role="status" aria-live="polite"></p>
+    </form>
+    <div class="lm-success" id="lmSuccess" hidden>
+      <h3 class="lm-title">Bedankt!</h3>
+      <p class="lm-sub">Je aanvraag is goed ontvangen. We brengen je persoonlijk op de hoogte zodra de brochure klaar is.</p>
+    </div>
+  </div>
+</div>
+
 <script>
   var body=document.body;
   document.getElementById('menuBtn').addEventListener('click',function(){body.classList.add('menu-open')});
@@ -304,6 +358,28 @@
   window.addEventListener('scroll',onScroll,{passive:true});onScroll();
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+  // Brochure-modal
+  var lm=document.getElementById('leadModal');
+  function openLM(){lm.classList.add('open');body.style.overflow='hidden';}
+  function closeLM(){lm.classList.remove('open');body.style.overflow='';}
+  document.getElementById('brochureBtn').addEventListener('click',openLM);
+  document.getElementById('lmClose').addEventListener('click',closeLM);
+  lm.querySelector('.lm-backdrop').addEventListener('click',closeLM);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lm.classList.contains('open'))closeLM();});
+  var lf=document.getElementById('leadForm');
+  lf.addEventListener('submit',function(e){
+    e.preventDefault();
+    var st=document.getElementById('lmStatus'),btn=lf.querySelector('.lm-submit');
+    st.textContent='';btn.disabled=true;btn.textContent='Versturen…';
+    fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(lf)})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(d.success){lf.style.display='none';document.getElementById('lmSuccess').hidden=false;}
+        else{st.textContent='Er ging iets mis. Probeer opnieuw of mail naar info@meerwonen.be.';btn.disabled=false;btn.textContent='Hou me op de hoogte';}
+      })
+      .catch(function(){st.textContent='Er ging iets mis. Probeer opnieuw of mail naar info@meerwonen.be.';btn.disabled=false;btn.textContent='Hou me op de hoogte';});
+  });
 </script>
 </body>
 </html>
