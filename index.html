@@ -7,7 +7,7 @@
 <title>Erf ter Schuren — drie villa's op een historisch erf in Denderhoutem</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Hanken+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Hanken+Grotesk:wght@300;400;500&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --paper:#F6F4EF;--paper-2:#EFEBE1;--ink:#1B1B1A;--ink-soft:#3C3C39;--navy:#16242E;
@@ -87,6 +87,22 @@
   .loc-intro{max-width:60ch;margin:0 auto;text-align:center}
   .map-wrap{margin-top:40px}
   .map-wrap svg{width:100%;height:auto;display:block}
+
+  /* terracotta sectie (Architectuur / duurzaamheid) */
+  .sec-terra{background:#7A5040}
+  .sec-terra .eyebrow{color:rgba(255,255,255,.72)}
+  .sec-terra .h-sec{color:#fff}
+  .sec-terra p{color:rgba(255,255,255,.88)}
+  .sec-terra .marker i{background:#fff}
+
+  /* stats-strip (key metrics) */
+  .stats-strip{background:#1A1917}
+  .stats-inner{display:grid;grid-template-columns:repeat(4,1fr);max-width:1180px;margin:0 auto;padding:clamp(2.4rem,5vw,3.4rem) 34px}
+  .stat{text-align:center;padding:6px 18px;border-left:1px solid rgba(255,255,255,.14)}
+  .stat:first-child{border-left:0}
+  .stat-val{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(1.9rem,3.6vw,2.6rem);line-height:1.05;color:#C98A63;white-space:nowrap}
+  .stat-lab{display:block;margin-top:9px;font-family:var(--disp);text-transform:uppercase;letter-spacing:.22em;font-size:10.5px;color:rgba(255,255,255,.72)}
+  @media(max-width:600px){.stats-inner{grid-template-columns:1fr 1fr;gap:28px 0;padding-left:24px;padding-right:24px}.stat{border-left:0}.stat:nth-child(2){border-left:1px solid rgba(255,255,255,.14)}.stat:nth-child(4){border-left:1px solid rgba(255,255,255,.14)}}
 
   .cta{position:relative;color:var(--on-dark);overflow:hidden}
   .cta-bg{position:absolute;inset:0;background-image:url("images/contact.jpg");background-size:cover;background-position:center;animation:kb 24s ease-out infinite alternate}
@@ -203,7 +219,7 @@
   <div class="hero-bg"></div>
   <div class="hero-inner">
     <h1>Erf ter Schuren</h1>
-    <p class="tag">Drie afgewerkte gezinsvilla's<br>op een historisch erf.</p>
+    <p class="tag">Drie villa's. Één uniek erf.</p>
   </div>
   <div class="scrollcue"><span>Ontdek</span><span class="dash"></span></div>
 </header>
@@ -223,7 +239,7 @@
   </div>
 </section>
 
-<section id="architectuur">
+<section id="architectuur" class="sec-terra">
   <div class="wrap">
     <span class="marker center" aria-hidden="true" style="margin-bottom:46px"><i></i><i></i></span>
     <div class="split">
@@ -275,6 +291,15 @@
       </article>
     </div>
     <p class="homes-note reveal">Alle villa's hebben een platte bedaking met kroonlijst op 6,2 m, gevels in handvormgevelsteen met witte pleister, waterpasserende verharding en een groene voortuin. Regenwater infiltreert via een wadi op het terrein.</p>
+  </div>
+</section>
+
+<section class="stats-strip" aria-label="Kerncijfers">
+  <div class="stats-inner">
+    <div class="stat"><span class="stat-val">E18</span><span class="stat-lab">E-peil</span></div>
+    <div class="stat"><span class="stat-val">3</span><span class="stat-lab">Villa's</span></div>
+    <div class="stat"><span class="stat-val">568–756 m²</span><span class="stat-lab">Perceel</span></div>
+    <div class="stat"><span class="stat-val">6% BTW</span><span class="stat-lab">Sloop-heropbouw</span></div>
   </div>
 </section>
 
