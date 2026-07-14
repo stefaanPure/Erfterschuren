@@ -161,6 +161,32 @@
     .reveal{opacity:1;transform:none;transition:none}
   }
 </style>
+
+<!-- Meta Pixel — Erf ter Schuren (GDPR: vuurt pas na toestemming) -->
+<script>
+  var PIXEL_ID = 'PIXEL_ID'; /* << vul hier je Meta Pixel-ID in */
+  window.loadMetaPixel = function(){
+    if (window._metaPixelInit || !PIXEL_ID || PIXEL_ID === 'PIXEL_ID') return;
+    window._metaPixelInit = true;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', PIXEL_ID);
+    fbq('track', 'PageView');
+  };
+  window.trackBrochureLead = function(){
+    if (window.fbq) fbq('track', 'Lead', { content_name: 'Brochure Erf ter Schuren', content_category: 'Vastgoed brochure-aanvraag' });
+  };
+  /* GEEN consent-banner aanwezig -> pixel wordt NIET automatisch geladen.
+     Na toestemming: roep window.loadMetaPixel() aan (en werk privacy.html bij). */
+</script>
+<!-- noscript-fallback: activeer samen met je consent-mechanisme (PIXEL_ID invullen):
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+-->
+<!-- Einde Meta Pixel -->
 </head>
 <body id="top">
 
@@ -391,6 +417,7 @@
         if(d.success){
           lf.style.display='none';
           document.getElementById('lmSuccess').hidden=false;
+          if(window.trackBrochureLead)window.trackBrochureLead();
           var dl=document.getElementById('lmDownload');
           setTimeout(function(){dl.click();},400);
         }
