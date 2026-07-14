@@ -427,5 +427,40 @@
       .catch(function(){st.textContent='Er ging iets mis. Probeer opnieuw of mail naar info@meerwonen.be.';btn.disabled=false;btn.textContent='Download de brochure';});
   });
 </script>
+
+<!-- Cookie-consent banner -->
+<style>
+  .ck-banner{position:fixed;left:0;right:0;bottom:0;z-index:200;background:#16242E;color:#EDEAE3;padding:16px 20px;box-shadow:0 -6px 24px rgba(0,0,0,.18)}
+  .ck-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:22px;flex-wrap:wrap;justify-content:space-between}
+  .ck-text{font-family:'Hanken Grotesk',system-ui,sans-serif;font-size:13.5px;font-weight:300;line-height:1.55;color:#EDEAE3;max-width:74ch;margin:0}
+  .ck-text a{color:#fff;text-decoration:underline}
+  .ck-actions{display:flex;gap:10px;flex-shrink:0}
+  .ck-btn{font-family:'Jost',system-ui,sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:11.5px;padding:11px 22px;cursor:pointer;border:1px solid rgba(237,234,227,.5);background:transparent;color:#EDEAE3;transition:all .25s}
+  .ck-btn:hover{border-color:#fff;color:#fff}
+  .ck-accept{background:#fff;color:#16242E;border-color:#fff}
+  .ck-accept:hover{background:#2C5F7C;border-color:#2C5F7C;color:#fff}
+  @media(max-width:640px){.ck-inner{flex-direction:column;align-items:flex-start;gap:14px}.ck-actions{width:100%}.ck-btn{flex:1}}
+</style>
+<div class="ck-banner" id="ckBanner" hidden>
+  <div class="ck-inner">
+    <p class="ck-text">We gebruiken cookies om ons websiteverkeer te meten en de effectiviteit van onze advertenties op te volgen (Meta Pixel). Aanvaard je deze cookies? Meer info in ons <a href="privacy.html">privacybeleid</a>.</p>
+    <div class="ck-actions">
+      <button type="button" class="ck-btn" id="ckDecline">Weigeren</button>
+      <button type="button" class="ck-btn ck-accept" id="ckAccept">Accepteren</button>
+    </div>
+  </div>
+</div>
+<script>
+  (function(){
+    var KEY='ckConsent', b=document.getElementById('ckBanner'), c=null;
+    try{c=localStorage.getItem(KEY);}catch(e){}
+    if(c==='accepted'){ if(window.loadMetaPixel)window.loadMetaPixel(); }
+    else if(c!=='declined'){ b.hidden=false; }
+    function decide(v){ try{localStorage.setItem(KEY,v);}catch(e){} b.hidden=true; }
+    document.getElementById('ckAccept').addEventListener('click',function(){ decide('accepted'); if(window.loadMetaPixel)window.loadMetaPixel(); });
+    document.getElementById('ckDecline').addEventListener('click',function(){ decide('declined'); });
+  })();
+</script>
+<!-- Einde cookie-consent banner -->
 </body>
 </html>

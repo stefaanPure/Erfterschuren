@@ -50,7 +50,7 @@
 
 <!-- Meta Pixel — Erf ter Schuren (GDPR: vuurt pas na toestemming) -->
 <script>
-  var PIXEL_ID = 'PIXEL_ID'; /* << vul hier je Meta Pixel-ID in */
+  var PIXEL_ID = '1739245280425887'; /* Meta Pixel-ID */
   window.loadMetaPixel = function(){
     if (window._metaPixelInit || !PIXEL_ID || PIXEL_ID === 'PIXEL_ID') return;
     window._metaPixelInit = true;
@@ -92,17 +92,17 @@
     <h2>2. Welke gegevens verzamelen we?</h2>
     <p>Wanneer je het contactformulier of het formulier &ldquo;Hou me op de hoogte&rdquo; invult, verzamelen we de gegevens die je zelf invoert:</p>
     <ul>
-      <li>Voornaam en naam</li>
+      <li>Naam</li>
       <li>E-mailadres</li>
-      <li>Telefoonnummer</li>
+      <li>Telefoonnummer (optioneel)</li>
     </ul>
-    <p>We verzamelen geen gegevens die je niet zelf bezorgt en gebruiken geen tracking- of advertentiecookies.</p>
+    <p>We verzamelen geen gegevens die je niet zelf bezorgt. Voor het meten van websiteverkeer en de effectiviteit van onze advertenties gebruiken we daarnaast de Meta Pixel — maar uitsluitend nadat je daarvoor toestemming hebt gegeven via de cookiemelding (zie punt 7).</p>
 
     <h2>3. Waarom verwerken we je gegevens?</h2>
     <p>We gebruiken je gegevens uitsluitend om je te contacteren over het woonproject Erf ter Schuren in Denderhoutem — bijvoorbeeld om je vraag te beantwoorden of om je te verwittigen zodra de brochure beschikbaar is. De rechtsgrond hiervoor is je toestemming, die je bij het invullen van het formulier geeft.</p>
 
     <h2>4. Met wie delen we je gegevens?</h2>
-    <p>Je gegevens worden niet verkocht of gedeeld voor commerciële doeleinden. Voor de verwerking van de formulieren doen we beroep op Web3Forms, dat de inzendingen als verwerker namens ons doorstuurt naar ons e-mailadres. We delen je gegevens niet met andere derden, tenzij dit wettelijk verplicht is.</p>
+    <p>Je gegevens worden niet verkocht of gedeeld voor commerciële doeleinden. Voor de verwerking van de formulieren doen we beroep op Web3Forms (bezorging van de inzending per e-mail) en Google (bewaring van de inzendingen in een Google Sheet), telkens als verwerker namens ons. We delen je gegevens niet met andere derden, tenzij dit wettelijk verplicht is.</p>
 
     <h2>5. Hoelang bewaren we je gegevens?</h2>
     <p>We bewaren je gegevens niet langer dan nodig voor het doel waarvoor je ze hebt gegeven, en in elk geval niet langer dan zolang het project Erf ter Schuren loopt. Daarna worden ze verwijderd.</p>
@@ -117,7 +117,11 @@
     </ul>
     <p>Stuur hiervoor een e-mail naar <a href="mailto:info@meerwonen.be">info@meerwonen.be</a>. Ben je van mening dat we je gegevens niet correct verwerken, dan kan je ook klacht indienen bij de Gegevensbeschermingsautoriteit (<a href="https://www.gegevensbeschermingsautoriteit.be" target="_blank" rel="noopener">www.gegevensbeschermingsautoriteit.be</a>).</p>
 
-    <h2>7. Wijzigingen</h2>
+    <h2>7. Cookies en Meta Pixel</h2>
+    <p>Deze website plaatst standaard geen tracking- of advertentiecookies. Enkel wanneer je daarvoor toestemming geeft via de cookiemelding, activeren we de <strong>Meta Pixel</strong> van Meta Platforms Ireland (Facebook/Instagram). Die meet paginabezoeken en brochure-aanvragen, zodat we onze advertenties kunnen opvolgen en verbeteren. Daarbij worden gegevens zoals je IP-adres en je surfgedrag op deze site door Meta verwerkt, dat mogelijk ook buiten de EU gegevens verwerkt.</p>
+    <p>Weiger je de cookies, dan wordt de Meta Pixel niet geladen. Je kan je keuze op elk moment herzien door de cookies van deze site te wissen; de melding verschijnt dan opnieuw. Meer over hoe Meta gegevens verwerkt, lees je in het <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">privacybeleid van Meta</a>.</p>
+
+    <h2>8. Wijzigingen</h2>
     <p>We kunnen dit privacybeleid van tijd tot tijd aanpassen. De meest recente versie is steeds op deze pagina te raadplegen.</p>
   </div>
 </main>
@@ -128,6 +132,41 @@
     <div class="credits"><span>Erf ter Schuren</span><span>Denderhoutem</span><span>© 2026 Meer Wonen BV</span><span>BTW BE 0794.126.924</span></div>
   </div>
 </footer>
+
+<!-- Cookie-consent banner -->
+<style>
+  .ck-banner{position:fixed;left:0;right:0;bottom:0;z-index:200;background:#16242E;color:#EDEAE3;padding:16px 20px;box-shadow:0 -6px 24px rgba(0,0,0,.18)}
+  .ck-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:22px;flex-wrap:wrap;justify-content:space-between}
+  .ck-text{font-family:'Hanken Grotesk',system-ui,sans-serif;font-size:13.5px;font-weight:300;line-height:1.55;color:#EDEAE3;max-width:74ch;margin:0}
+  .ck-text a{color:#fff;text-decoration:underline}
+  .ck-actions{display:flex;gap:10px;flex-shrink:0}
+  .ck-btn{font-family:'Jost',system-ui,sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:11.5px;padding:11px 22px;cursor:pointer;border:1px solid rgba(237,234,227,.5);background:transparent;color:#EDEAE3;transition:all .25s}
+  .ck-btn:hover{border-color:#fff;color:#fff}
+  .ck-accept{background:#fff;color:#16242E;border-color:#fff}
+  .ck-accept:hover{background:#2C5F7C;border-color:#2C5F7C;color:#fff}
+  @media(max-width:640px){.ck-inner{flex-direction:column;align-items:flex-start;gap:14px}.ck-actions{width:100%}.ck-btn{flex:1}}
+</style>
+<div class="ck-banner" id="ckBanner" hidden>
+  <div class="ck-inner">
+    <p class="ck-text">We gebruiken cookies om ons websiteverkeer te meten en de effectiviteit van onze advertenties op te volgen (Meta Pixel). Aanvaard je deze cookies? Meer info in ons <a href="privacy.html">privacybeleid</a>.</p>
+    <div class="ck-actions">
+      <button type="button" class="ck-btn" id="ckDecline">Weigeren</button>
+      <button type="button" class="ck-btn ck-accept" id="ckAccept">Accepteren</button>
+    </div>
+  </div>
+</div>
+<script>
+  (function(){
+    var KEY='ckConsent', b=document.getElementById('ckBanner'), c=null;
+    try{c=localStorage.getItem(KEY);}catch(e){}
+    if(c==='accepted'){ if(window.loadMetaPixel)window.loadMetaPixel(); }
+    else if(c!=='declined'){ b.hidden=false; }
+    function decide(v){ try{localStorage.setItem(KEY,v);}catch(e){} b.hidden=true; }
+    document.getElementById('ckAccept').addEventListener('click',function(){ decide('accepted'); if(window.loadMetaPixel)window.loadMetaPixel(); });
+    document.getElementById('ckDecline').addEventListener('click',function(){ decide('declined'); });
+  })();
+</script>
+<!-- Einde cookie-consent banner -->
 
 </body>
 </html>
