@@ -378,10 +378,13 @@
   lm.querySelector('.lm-backdrop').addEventListener('click',closeLM);
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lm.classList.contains('open'))closeLM();});
   var lf=document.getElementById('leadForm');
+  // Google Apps Script web-app URL (…/exec) voor opslag in Google Sheet. Leeg = uitgeschakeld.
+  var SHEET_ENDPOINT='';
   lf.addEventListener('submit',function(e){
     e.preventDefault();
     var st=document.getElementById('lmStatus'),btn=lf.querySelector('.lm-submit');
     st.textContent='';btn.disabled=true;btn.textContent='Versturen…';
+    if(SHEET_ENDPOINT){try{fetch(SHEET_ENDPOINT,{method:'POST',mode:'no-cors',body:new FormData(lf)});}catch(err){}}
     fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(lf)})
       .then(function(r){return r.json();})
       .then(function(d){
