@@ -379,7 +379,7 @@
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lm.classList.contains('open'))closeLM();});
   var lf=document.getElementById('leadForm');
   // Google Apps Script web-app URL (…/exec) voor opslag in Google Sheet. Leeg = uitgeschakeld.
-  var SHEET_ENDPOINT='';
+  var SHEET_ENDPOINT='https://script.google.com/macros/s/AKfycbwB-KbaUrkno21DLRt1A0XlCC0AA0qAVbL2Or9co1nM5MBVMIBXEOLGb0UuQByIDdrz/exec';
   lf.addEventListener('submit',function(e){
     e.preventDefault();
     var st=document.getElementById('lmStatus'),btn=lf.querySelector('.lm-submit');
