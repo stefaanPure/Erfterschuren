@@ -293,7 +293,7 @@
       <span class="marker light" aria-hidden="true" style="margin-bottom:34px"><i></i><i></i></span>
       <h2>Interesse in<br>Erf ter Schuren?</h2>
       <div class="stack">Landelijk.<br>Tijdloos.<br>Volledig afgewerkt.</div>
-      <button type="button" class="btn-outline" id="brochureBtn">Hou me op de hoogte</button>
+      <button type="button" class="btn-outline" id="brochureBtn">Download de brochure</button>
       <div class="cinfo">Meer informatie over dit woonproject in Denderhoutem?<br>
         <a class="btn-mail" href="mailto:info@meerwonen.be?subject=Vraag%20over%20Erf%20ter%20Schuren">Contacteer ons</a>
       </div>
@@ -327,11 +327,11 @@
   <div class="lm-card" role="dialog" aria-modal="true" aria-labelledby="lmTitle">
     <button class="lm-x" id="lmClose" type="button" aria-label="Sluiten">&#215;</button>
     <p class="eyebrow">Brochure</p>
-    <h3 class="lm-title" id="lmTitle">Hou me op de hoogte</h3>
-    <p class="lm-sub">De brochure van Erf ter Schuren is nog in de maak. Laat je gegevens na en wees als eerste op de hoogte zodra ze beschikbaar is.</p>
+    <h3 class="lm-title" id="lmTitle">Download de brochure</h3>
+    <p class="lm-sub">Laat je gegevens na, dan kan je meteen de brochure van Erf ter Schuren downloaden.</p>
     <form id="leadForm" class="lm-form">
       <input type="hidden" name="access_key" value="3787631e-3b1f-4bb2-b5ac-b5520554d7ee">
-      <input type="hidden" name="subject" value="Nieuwe aanvraag 'hou me op de hoogte' — Erf ter Schuren">
+      <input type="hidden" name="subject" value="Nieuwe brochure-aanvraag — Erf ter Schuren">
       <input type="hidden" name="from_name" value="Erf ter Schuren website">
       <input type="checkbox" name="botcheck" class="lm-hp" tabindex="-1" autocomplete="off">
       <div class="lm-row">
@@ -341,12 +341,13 @@
       <div class="lm-field"><label for="lf-mail">E-mailadres</label><input id="lf-mail" type="email" name="email" required></div>
       <div class="lm-field"><label for="lf-tel">Telefoon</label><input id="lf-tel" type="tel" name="telefoon" required></div>
       <label class="lm-consent"><input type="checkbox" required> Ik ga ermee akkoord dat Meer Wonen mijn gegevens gebruikt om mij te contacteren over dit project. Zie ons <a href="privacy.html" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:underline">privacybeleid</a>.</label>
-      <button type="submit" class="lm-submit">Hou me op de hoogte</button>
+      <button type="submit" class="lm-submit">Download de brochure</button>
       <p class="lm-status" id="lmStatus" role="status" aria-live="polite"></p>
     </form>
     <div class="lm-success" id="lmSuccess" hidden>
       <h3 class="lm-title">Bedankt!</h3>
-      <p class="lm-sub">Je aanvraag is goed ontvangen. We brengen je persoonlijk op de hoogte zodra de brochure klaar is.</p>
+      <p class="lm-sub">Je aanvraag is goed ontvangen. Je download start automatisch — klik anders op de knop hieronder.</p>
+      <a class="lm-submit lm-dl" id="lmDownload" href="brochure.pdf" download="Erf-ter-Schuren-brochure.pdf">Download de brochure (PDF)</a>
     </div>
   </div>
 </div>
@@ -378,10 +379,15 @@
     fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(lf)})
       .then(function(r){return r.json();})
       .then(function(d){
-        if(d.success){lf.style.display='none';document.getElementById('lmSuccess').hidden=false;}
-        else{st.textContent='Er ging iets mis. Probeer opnieuw of mail naar info@meerwonen.be.';btn.disabled=false;btn.textContent='Hou me op de hoogte';}
+        if(d.success){
+          lf.style.display='none';
+          document.getElementById('lmSuccess').hidden=false;
+          var dl=document.getElementById('lmDownload');
+          setTimeout(function(){dl.click();},400);
+        }
+        else{st.textContent='Er ging iets mis. Probeer opnieuw of mail naar info@meerwonen.be.';btn.disabled=false;btn.textContent='Download de brochure';}
       })
-      .catch(function(){st.textContent='Er ging iets mis. Probeer opnieuw of mail naar info@meerwonen.be.';btn.disabled=false;btn.textContent='Hou me op de hoogte';});
+      .catch(function(){st.textContent='Er ging iets mis. Probeer opnieuw of mail naar info@meerwonen.be.';btn.disabled=false;btn.textContent='Download de brochure';});
   });
 </script>
 </body>
