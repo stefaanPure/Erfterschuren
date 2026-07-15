@@ -387,6 +387,7 @@
   <div class="lm-backdrop"></div>
   <div class="lm-card" role="dialog" aria-modal="true" aria-labelledby="lmTitle">
     <button class="lm-x" id="lmClose" type="button" aria-label="Sluiten">&#215;</button>
+    <div id="lmIntro">
     <p class="eyebrow">Brochure</p>
     <h3 class="lm-title" id="lmTitle">Download de brochure</h3>
     <p class="lm-sub">Laat je gegevens na, dan kan je meteen de brochure van Erf ter Schuren downloaden.</p>
@@ -402,6 +403,7 @@
       <button type="submit" class="lm-submit">Download de brochure</button>
       <p class="lm-status" id="lmStatus" role="status" aria-live="polite"></p>
     </form>
+    </div>
     <div class="lm-success" id="lmSuccess" hidden>
       <h3 class="lm-title">Bedankt!</h3>
       <p class="lm-sub">Je aanvraag is goed ontvangen. Je download start automatisch — klik anders op de knop hieronder.</p>
@@ -441,7 +443,7 @@
       .then(function(r){return r.json();})
       .then(function(d){
         if(d.success){
-          lf.style.display='none';
+          document.getElementById('lmIntro').style.display='none';
           document.getElementById('lmSuccess').hidden=false;
           if(window.trackBrochureLead)window.trackBrochureLead();
           var dl=document.getElementById('lmDownload');
